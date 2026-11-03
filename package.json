@@ -1,7 +1,7 @@
 {
   "name": "nimony",
   "displayName": "Nimony",
-  "description": "Language support for Nimony (the NIF-based Nim successor), powered by the nimony-lsp language server.",
+  "description": "Language support for Nimony (the NIF-based Nim successor), powered by the aowllsp language server.",
   "version": "0.8.0",
   "publisher": "nimony",
   "license": "MIT",
@@ -73,12 +73,27 @@
         "nimony.serverPath": {
           "type": "string",
           "default": "",
-          "markdownDescription": "Absolute path to the `nimony-lsp` server binary. When empty, the extension auto-resolves the binary bundled alongside the extension, then falls back to `/home/savant/nimony-lsp/server/bin/nimony-lsp`."
+          "markdownDescription": "Absolute path to the `aowllsp` language server binary. Empty = look for `aowllsp` in the extension's own directory, then on `PATH`."
         },
         "nimony.nimonyPath": {
           "type": "string",
-          "default": "/home/savant/nimony/bin/nimony",
-          "description": "Path to the Nimony compiler binary. Passed to the language server via initializationOptions."
+          "default": "",
+          "description": "Path to the `nimony` compiler binary. Empty = the server uses `NIMONY_EXE`, then `nimony` from PATH."
+        },
+        "nimony.aowllensPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional path to `aowllens` (NIF artifact reader) — enables symbols, completion, semantic tokens, inlay hints, call/type hierarchy. Empty = disabled."
+        },
+        "nimony.aowlsuggestPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional path to `aowlsuggest` (recovering parser). Enables syntax diagnostics and quick-fix code actions. Empty = disabled."
+        },
+        "nimony.aowlfmtPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional path to `aowlfmt` (verified layout formatter). Enables document/range formatting. Empty = disabled."
         },
         "nimony.extraPaths": {
           "type": "array",
@@ -130,9 +145,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aoughwl/nimony-lsp.git"
+    "url": "https://github.com/iacore/nimony-vscode.git"
   },
   "bugs": {
-    "url": "https://github.com/aoughwl/nimony-lsp/issues"
+    "url": "https://github.com/iacore/nimony-vscode/issues"
   }
 }
