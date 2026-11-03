@@ -76,7 +76,6 @@ the association.
 ## Build
 
 ```sh
-cd client
 npm ci
 npm run bundle          # esbuild -> out/extension.js
 npx @vscode/vsce package --no-dependencies
